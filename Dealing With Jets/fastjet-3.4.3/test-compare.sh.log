@@ -1,0 +1,24 @@
+-----------------------------------------------------------
+Checking which algorithms are available for testing
+-----------------------------------------------------------
+-----------------------------------------------------------
+Running 'fastjet_example < data/single_event.dat'
+-----------------------------------------------------------
+
+-----------------------------------------------------------
+Running 'fastjet_areas < data/single_event.dat'
+-----------------------------------------------------------
+-----------------------------------------------------------
+Running 'fastjet_timing_plugins -incl 0.0 < data/single_event.dat' on all algs
+  tested  : kt cam antikt genkt,1.0 genkt,0.0 genkt,-1.0 eekt,-excld,2.0@single-ee-event.dat eegenkt,1.0@single-ee-event.dat eegenkt,0.0@single-ee-event.dat eegenkt,-1.0@single-ee-event.dat siscone sisconespheri jetclu midpoint eecambridge@single-ee-event.dat eecambridge,-ycut,0.01@single-ee-event.dat jade,-excly,0.01@single-ee-event.dat gridjet
+  untested: pxcone d0runiicone trackjet atlascone cmsiterativecone d0runipre96cone d0runicone
+  R values: 0.4 0.7 1.0
+-----------------------------------------------------------
+
+-----------------------------------------------------------
+Comparing output from these runs (test-script-output.txt) 
+to the expected output (test-script-output-orig.txt)
+-----------------------------------------------------------
+Tested plugins: 
+Results are identical
+PASS test-compare.sh (exit status: 0)
