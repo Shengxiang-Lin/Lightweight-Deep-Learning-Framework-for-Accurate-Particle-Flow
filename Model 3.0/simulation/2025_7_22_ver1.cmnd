@@ -1,0 +1,39 @@
+! ────────────────────────────────────────────────
+!  CMS Run-3 / Phase-II 7 TeV - inclusive dijet
+! ────────────────────────────────────────────────
+Main:numberOfEvents   =  10000        ! 统计量
+Beams:idA             =  2212         ! p
+Beams:idB             =  2212         ! p
+Beams:eCM             =  7000.       ! √s = 7 TeV
+
+! ---------- 主进程：QCD 2→2 -----------
+HardQCD:all           =  on           ! 包括 gg→gg、qg→qg
+PhaseSpace:pTHatMin   =  120.         ! 阈值 (GeV) - 控制文件体积
+#PhaseSpace:pTHatMax  =  7000.        ! 可选上限
+HadronLevel:Hadronize =  on
+
+! ---------- 调优与 MPI / UE ----------
+Tune:pp               =  14           ! CMS 官方 CP5 tune
+
+! ---------- 束斑 / 顶点展宽 ----------
+Beams:allowVertexSpread = on
+Beams:sigmaVertexX    =  0.011        ! ≈ 11 µm  (Run-3 beam spot)
+Beams:sigmaVertexY    =  0.011
+Beams:sigmaVertexZ    =  5.30         ! ≈ 5 mm
+Beams:sigmaTime       =  180.         ! 180 mm/c ≈ 0.6 ns
+
+! ---------- (可选) Shower 系统误差权重 ----------
+UncertaintyBands:doVariations = on
+UncertaintyBands:List = {
+  alphaShi fsr:muRfac=0.5 isr:muRfac=0.5,
+  alphaSlo fsr:muRfac=2.0 isr:muRfac=2.0,
+  hardHi   fsr:cNS=2.0  isr:cNS=2.0,
+  hardLo   fsr:cNS=-2.0 isr:cNS=-2.0
+}
+
+! ---------- 保存事件结束 ----------
+PartonLevel:ISR = on
+PartonLevel:FSR = on
+PartonLevel:MPI = on
+HadronLevel:all = on
+ParticleDecays:limitTau0 = on
