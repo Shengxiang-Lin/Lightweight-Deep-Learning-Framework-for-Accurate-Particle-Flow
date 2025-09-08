@@ -42,7 +42,7 @@ class MaxMinNormalizeGlobalPerChannel:
 #创建数据集
 class MyDataSet(Dataset):
     def __init__(self,img_dir,group_size=10000,size_in=10000,transform=None,
-                split_shuffle = True,splition = True):
+                split_shuffle = True,splition = False):
         self.img_dir=img_dir
         self.images=os.listdir(img_dir)
         self.transform=transform
@@ -121,8 +121,6 @@ class MyDataSet(Dataset):
             # 释放内存
             del self.X
             del self.Y
-
-
 
     def __len__(self):
         return len(self.X)
